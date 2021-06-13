@@ -1,6 +1,13 @@
 
 <html>
     <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
         <script src="js/handlebars.min.js"></script>
         <script>
             var userdetails=[];
@@ -8,8 +15,18 @@
             var showUserDetail=function(index){
                 console.log("selected = ",index);
                 var data = userdetails[index];
-                
+
                 var templateStr = document.getElementById("user-detail-template").innerHTML;
+                if(index!=0){
+                    data.prev=index-1;
+                }else{
+                    data.prev=null
+                }
+                if(index != (userdetails.length-1)){
+                data.next=index+1;
+                }else{
+                    data.next=null;
+                }
 
                 var template = Handlebars.compile(templateStr);
                 var htmlToRender=template(data);
@@ -29,57 +46,140 @@
                 document.getElementById("userList").innerHTML=htmlToRender;
                 
             }
-            fetch("https://thedemoapp.free.beeceptor.com/get-user-details?start=0")
+            var fetchUserDetails=function(pageIndex){
+            fetch("https://thedemoapp.free.beeceptor.com/get-user-details?start="+pageIndex)
             .then(response => response.json())
             .then(data => {
                 console.log(data)
                 userdetails=data
                 renderUserList()
             });
+            }
+
+            fetchUserDetails(0)
             
+            var logout=function(){
+                window.location.href="login.html"
+            }
         </script>
     </head>
     
 
     <body>
+        <nav>
+            <div class="nav-wrapper">
+              <a href="#" class="brand-logo">Logo</a>
+              <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                <li><a href="#" onclick="logout()">Logout</a></li>
+              </ul>
+            </div>
+          </nav>
         <div id="user-list-template" style="display: none;" >
-            <ul >
+            <ul class="collection">
                 {{#each userDetails}}
-                <li onclick="showUserDetail({{@index}})">
-                    <div >
-                        <b>{{this.name}}</b>
-                        <b>age:</b>{{this.age}}
-                        <b>dob:</b>{{this.dob}}
-    
-                    </div>
+                <li class="collection-item avatar" onclick="showUserDetail({{@index}})">
+                  <img src="images/groot2.jpg" alt="" class="circle">
+                  <span class="title">{{this.name}}</span>
+                  <p>
+                  <b>Age :</b> {{this.age}} <br>
+                  <b>dob :</b>{{this.dob}}
+                  </p>
+                  <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                 </li>
                 {{/each}}
             </ul>
         </div>
 
         <div id="user-detail-template" style="display: none;" >
-                    <div >
-                        <b>{{this.name}}</b>
-                        <b> {{this.more.job_info}}</b>
-                        <b>age:</b>{{this.age}}
-                        <b>dob:</b>{{this.dob}}
-                        <b>Address</b>
-                        <p>
-                            {{this.more.address_line1}}, {{this.more.address_line2}}
-                            {{this.more.address_line3}}
+          
+
+                    <div class="card large" style="height: 600px;">
+                        <div class="card-image">
+                          <img src="images/groot2.jpg">
+                          <span class="card-title">{{this.name}}</span>
+                        </div>
+                        <div class="card-content">
+                          <p>
+                            <b>Name </b>{{this.name}}  <br>
+                            <b>Age </b>{{this.age}}
+                            <br>
+                            <b>Dob </b>{{this.dob}}
+                            <br>
+                            <b>Address</b>
+                            <p>
+                                {{this.more.address_line1}}, {{this.more.address_line2}}
+                                {{this.more.address_line3}}
+                                
+                            </p>
+                            <b>Cell : {{this.more.phone}}</b>
+                          </p>
+                        </div>
+                        <div class="card-action">
+                          {{#if this.prev}}
+                          <a href="#" onclick="showUserDetail({{this.prev}})">Previous </a>
+                          {{/if}}
+                          {{#if this.next}}
+                          <a href="#" onclick="showUserDetail({{this.next}})">Next </a>
+                          {{/if}}
+                        </div>
+                      </div>
+        </div>
+
+        <div class="row">
+         
+           
+            <div class="col s12 l8">
+                <div id="userDetails">
+
+                    <blockquote>
+                        Select an user 
+                    </blockquote>
+                   
+                </div>
+
+                     
+                
                             
-                        </p>
-                        <b>Cell : {{this.more.phone}}</b>
+            </div>
+            <div class="col s12 l4">
+                <div id="userList">
+                    <div class="center-align">
+                     <br><br><br>
+                     <h4>Loading User list</h4>   
+                     <br>
+                    <div class="preloader-wrapper big active">
+                        <div class="spinner-layer spinner-blue-only">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-        </div>
+                  
+                </div>
+                <ul class="pagination">
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li class="waves-effect"><a href="#!">..No Pages</a></li>
+                   
+                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                  </ul>
+            </div>
+          
+          </div>
 
-        <div id="userList">
+      
 
-        </div>
-
-        <div id="userDetails">
-
-        </div>
+        
        
     </body>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script>
+          M.AutoInit();
+    </script>
 </html>
