@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Transparent Register Form</title>
+		<link rel ="stylesheet" href="css/style.css">
+	<body>
+<div class="Register-box">
+	<div id="registerform">
+	<h1>Register</h1>
+	<div class="textbox">
+		<i class="far fa-user" aria-hidden="true"></i> 
+		<input id="Username" type="text" placeholder="Username" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fas fa-envelope-square"></i>
+		<input id="Email" type="text" placeholder="E-mail" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fas fa-envelope-square"></i>
+		<input id="DOB" type="datetime" placeholder="Date_of_birth" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fas fa-envelope-square"></i>
+		<input id="Age1" type="number" placeholder="Age" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fas fa-envelope-square"></i>
+		<input id="Address1" type="number" placeholder="Address" name="" value="">
+	</div>
+	<div class="textbox">
+		<i class="fas fa-lock" aria-hidden="true"></i>
+		<input id="Password1" type="password" placeholder="Password" nmae="" value="">
+	</div>
+<input class="btn" type="button" name="Register" value="Register" onclick="register()"">
+</div>
+<div id="success">
+	<p>successfully registered ,you can login now</p>
+</div>
+	<div class="loginbutton">
+		<p>Login<a href="login.html" target="_blank">   here!</a></p>
+	</div>
+</div>
+<script>
+	var register=function()
+	{
+		var username=document.getElementById("Username").value;
+		var Email=document.getElementById("Email").value;
+		var Date_of_birth=document.getElementById("DOB").value;
+		var Age=document.getElementById("Age1").value;
+		var Address=document.getElementById("Address1").value;
+		var password=document.getElementById("Password1").value;
+		var userinfo={
+			username:username,
+			eMail:Email,
+			dob:Date_of_birth,
+			age:Age,
+			address:Address,
+			password:password
+		}
+		console.log(userinfo);
+		var userinfostr=JSON.stringify(userinfo)
+		console.log(userinfostr)
+		localStorage.setItem("user",userinfostr)
+	}
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Transparent Login Form</title>
+		<link rel ="stylesheet" href="css/style.css">
+	<body>
+<div class="login-box">
+	<h1>Login</h1>
+	<div class="textbox">
+		<i class="far fa-user" aria-hidden="true"></i> 
+		<input id="userName" type="text" placeholder="Username" name="" value="">
+	</div>
+	
+	<div class="textbox">
+		<i class="fas fa-lock" aria-hidden="true"></i>
+		<input id="Password" type="password" placeholder="Password" nmae="" value="">
+	</div>
+<input class="btn" type="button" name="Sign in" value="Sign in" onclick="login()">
+	<div class="Register">
+		<p>Don't have an account? <a href="register.html" target="_blank">Register here!</a></p>
+	</div>
+</div>
+<script>
+	var login=function()
+	{
+		var username=document.getElementById("userName").value;
+		var password=document.getElementById("Password").value;
+		var userstr=localStorage.getItem("user")
+		if(userstr!=null)
+		{
+			
+		var jsuserinfo=JSON.parse(userstr)
+		var pwd=jsuserinfo.password
+		var uname=jsuserinfo.username
+		if(uname==username && pwd==password)
+		{
+			console.log("success")
+			window.location.href="HOME.HTML"
+		}
+		else
+		{
+			alert("wrong username and password")
+		}
+		}
+		else{
+			alert("no user registered,kindly register as user first")
+		}
+	}
+</script>

@@ -1,0 +1,87 @@
+[
+  {
+    "name": "BretLee",
+    "age": 21,
+    "dob": "20-10-2020",
+    "firstName": "Brett",
+    "lastName": "Lee",
+    "more": {
+      "address_line1": "balaji street",
+      "address_line2": "alagappan nagar",
+      "address_line3": "madurai",
+      "phone": "1234567890",
+      "job_info": "Senior Technical Architect"
+    }
+  },
+  {
+    "name": "Bewin",
+    "age": 21,
+    "dob": "20-10-2020",
+    "firstName": "Brett",
+    "lastName": "Lee",
+    "more": {
+      "address_line1": "balaji street",
+      "address_line2": "alagappan nagar",
+      "address_line3": "madurai",
+      "phone": "1234567890",
+      "job_info": "Senior Technical Architect"
+    }
+  },
+  {
+    "name": "Rishi",
+    "age": 21,
+    "dob": "20-10-2020",
+    "firstName": "Brett",
+    "lastName": "Lee",
+    "more": {
+      "address_line1": "balaji street",
+      "address_line2": "alagappan nagar",
+      "address_line3": "madurai",
+      "phone": "1234567890",
+      "job_info": "Senior Technical Architect"
+    }
+  },
+  {
+    "name": "senthil",
+    "age": 21,
+    "dob": "20-10-2020",
+    "firstName": "Brett",
+    "lastName": "Lee",
+    "more": {
+      "address_line1": "balaji street",
+      "address_line2": "alagappan nagar",
+      "address_line3": "madurai",
+      "phone": "1234567890",
+      "job_info": "Senior Technical Architect"
+    }
+  },
+  {
+    "name": "kumar",
+    "age": 21,
+    "dob": "20-10-2020",
+    "firstName": "Brett",
+    "lastName": "Lee",
+    "more": {
+      "address_line1": "balaji street",
+      "address_line2": "alagappan nagar",
+      "address_line3": "madurai",
+      "phone": "1234567890",
+      "job_info": "Senior Technical Architect"
+    }
+  },
+  {
+    "name": "Sathish",
+    "": "",
+    "age": 21,
+    "dob": "20-10-2020",
+    "firstName": "Brett",
+    "lastName": "Lee",
+    "more": {
+      "address_line1": "balaji street",
+      "address_line2": "alagappan nagar",
+      "address_line3": "madurai",
+      "phone": "1234567890",
+      "job_info": "Senior Technical Architect"
+    }
+  }
+]
