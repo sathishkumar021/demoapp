@@ -1,0 +1,85 @@
+
+<html>
+    <head>
+        <script src="js/handlebars.min.js"></script>
+        <script>
+            var userdetails=[];
+
+            var showUserDetail=function(index){
+                console.log("selected = ",index);
+                var data = userdetails[index];
+                
+                var templateStr = document.getElementById("user-detail-template").innerHTML;
+
+                var template = Handlebars.compile(templateStr);
+                var htmlToRender=template(data);
+                console.log(htmlToRender);
+                document.getElementById("userDetails").innerHTML=htmlToRender;
+            }
+
+            var renderUserList=function(){
+
+                var templateStr = document.getElementById("user-list-template").innerHTML;
+
+                var template = Handlebars.compile(templateStr);
+                var data={};
+                data.userDetails=userdetails;
+                var htmlToRender=template(data);
+                console.log(htmlToRender);
+                document.getElementById("userList").innerHTML=htmlToRender;
+                
+            }
+            fetch("https://thedemoapp.free.beeceptor.com/get-user-details?start=0")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                userdetails=data
+                renderUserList()
+            });
+            
+        </script>
+    </head>
+    
+
+    <body>
+        <div id="user-list-template" style="display: none;" >
+            <ul >
+                {{#each userDetails}}
+                <li onclick="showUserDetail({{@index}})">
+                    <div >
+                        <b>{{this.name}}</b>
+                        <b>age:</b>{{this.age}}
+                        <b>dob:</b>{{this.dob}}
+    
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div id="user-detail-template" style="display: none;" >
+                    <div >
+                        <b>{{this.name}}</b>
+                        <b> {{this.more.job_info}}</b>
+                        <b>age:</b>{{this.age}}
+                        <b>dob:</b>{{this.dob}}
+                        <b>Address</b>
+                        <p>
+                            {{this.more.address_line1}}, {{this.more.address_line2}}
+                            {{this.more.address_line3}}
+                            
+                        </p>
+                        <b>Cell : {{this.more.phone}}</b>
+                    </div>
+        </div>
+
+        <div id="userList">
+
+        </div>
+
+        <div id="userDetails">
+
+        </div>
+       
+    </body>
+</html>
