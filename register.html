@@ -2,45 +2,50 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Transparent Register Form</title>
+		<title>Demo App - Register </title>
 		<link rel ="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css">
+		<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<body>
 <div class="Register-box">
-	<div id="registerform">
-	<h1>Register</h1>
+	<div id="registerform" class="row">
+	<div id="register-content" class="white-text col l3 s12 offset-l9 m6 offset-m6">
+	<h3 class="white-text">Register</h3>
 	<div class="textbox">
-		<i class="far fa-user" aria-hidden="true"></i> 
-		<input id="Username" type="text" placeholder="Username" name="" value="">
+		<i class="fa fa-user white-text" aria-hidden="true"></i> 
+		<input class="white-text" id="Username" type="text" placeholder="Username" name="" value="">
 	</div>
 	<div class="textbox">
-		<i class="fas fa-envelope-square"></i>
-		<input id="Email" type="text" placeholder="E-mail" name="" value="">
+		<i class="fa fa-envelope-square white-text"></i>
+		<input class="white-text" id="Email" type="text" placeholder="E-mail" name="" value="">
 	</div>
 	<div class="textbox">
-		<i class="fas fa-envelope-square"></i>
-		<input id="DOB" type="datetime" placeholder="Date_of_birth" name="" value="">
+		<i class="fa fa-calendar white-text" aria-hidden="true"></i>
+		<input class="white-text" id="DOB" type="datetime" placeholder="Date_of_birth" name="" value="">
 	</div>
 	<div class="textbox">
-		<i class="fas fa-envelope-square"></i>
-		<input id="Age1" type="number" placeholder="Age" name="" value="">
+		<i class="fa fa-heartbeat white-text" aria-hidden="true"></i>		
+		<input class="white-text" id="Age1" type="number" placeholder="Age" name="" value="">
 	</div>
 	<div class="textbox">
-		<i class="fas fa-envelope-square"></i>
-		<input id="Address1" type="number" placeholder="Address" name="" value="">
+		<i class="fa fa-map-marker white-text" aria-hidden="true"></i>
+		<input class="white-text" id="Address1" type="text" placeholder="Address" name="" value="">
 	</div>
 	<div class="textbox">
-		<i class="fas fa-lock" aria-hidden="true"></i>
-		<input id="Password1" type="password" placeholder="Password" nmae="" value="">
+		<i class="fa fa-lock white-text" aria-hidden="true"></i>
+		<input class="white-text" id="Password1" type="password" placeholder="Password" nmae="" value="">
 	</div>
-<input class="btn" type="button" name="Register" value="Register" onclick="register()"">
+<input class="btn" type="button" name="Register" value="Register" onclick="register()" >
+<div class="loginbutton">
+	<p class="white-text">Login<a class="white-text" href="login.html" >   here!</a></p>
 </div>
-<div id="success">
-	<p>successfully registered ,you can login now</p>
 </div>
-	<div class="loginbutton">
-		<p>Login<a href="login.html" target="_blank">   here!</a></p>
-	</div>
 </div>
+
+
+</div>
+
 <script>
 	var register=function()
 	{
@@ -62,5 +67,15 @@
 		var userinfostr=JSON.stringify(userinfo)
 		console.log(userinfostr)
 		localStorage.setItem("user",userinfostr)
+		alert("Registered Successfully,you will be redirected to Login page shortly..")
+		document.getElementById("register-content").innerHTML="<b>Registered Successfully,you will be redirected to Login page shortly..<b>"
+		setTimeout(function(){
+			window.location.href="login.html"
+		},2000)
 	}
+
+</script>
+<script>
+
+
 </script>

@@ -6,7 +6,7 @@
     "firstName": "Brett",
     "lastName": "Lee",
     "more": {
-      "address_line1": "balaji street",
+      "address_line1": "pandian street",
       "address_line2": "alagappan nagar",
       "address_line3": "madurai",
       "phone": "1234567890",
@@ -15,8 +15,8 @@
   },
   {
     "name": "Bewin",
-    "age": 21,
-    "dob": "20-10-2020",
+    "age": 18,
+    "dob": "2-11-2003",
     "firstName": "Brett",
     "lastName": "Lee",
     "more": {
@@ -29,12 +29,12 @@
   },
   {
     "name": "Rishi",
-    "age": 21,
-    "dob": "20-10-2020",
+    "age": 11,
+    "dob": "16-01-2010",
     "firstName": "Brett",
     "lastName": "Lee",
     "more": {
-      "address_line1": "balaji street",
+      "address_line1": "thiruvalluvar street",
       "address_line2": "alagappan nagar",
       "address_line3": "madurai",
       "phone": "1234567890",
@@ -42,28 +42,28 @@
     }
   },
   {
-    "name": "senthil",
-    "age": 21,
-    "dob": "20-10-2020",
-    "firstName": "Brett",
+    "name": "Senthil",
+    "age": 29,
+    "dob": "20-5-1992",
+    "firstName": "Meff",
     "lastName": "Lee",
     "more": {
-      "address_line1": "balaji street",
-      "address_line2": "alagappan nagar",
-      "address_line3": "madurai",
+      "address_line1": "besan nagar",
+      "address_line2": " ",
+      "address_line3": "Chennai",
       "phone": "1234567890",
       "job_info": "Senior Technical Architect"
     }
   },
   {
-    "name": "kumar",
-    "age": 21,
-    "dob": "20-10-2020",
-    "firstName": "Brett",
+    "name": "Kumar",
+    "age": 5,
+    "dob": "20-10-2016",
+    "firstName": "jack",
     "lastName": "Lee",
     "more": {
       "address_line1": "balaji street",
-      "address_line2": "alagappan nagar",
+      "address_line2": "TVS nagar",
       "address_line3": "madurai",
       "phone": "1234567890",
       "job_info": "Senior Technical Architect"

@@ -15,7 +15,7 @@
             var showUserDetail=function(index){
                 console.log("selected = ",index);
                 var data = userdetails[index];
-
+                data.img=index;
                 var templateStr = document.getElementById("user-detail-template").innerHTML;
                 if(index!=0){
                     data.prev=index-1;
@@ -68,7 +68,7 @@
     <body>
         <nav>
             <div class="nav-wrapper">
-              <a href="#" class="brand-logo">Logo</a>
+              <a href="#" class="brand-logo">Demopage</a>
               <ul id="nav-mobile" class="right hide-on-med-and-down">
 
                 <li><a href="#" onclick="logout()">Logout</a></li>
@@ -79,7 +79,7 @@
             <ul class="collection">
                 {{#each userDetails}}
                 <li class="collection-item avatar" onclick="showUserDetail({{@index}})">
-                  <img src="images/groot2.jpg" alt="" class="circle">
+                  <img src="images/groot-{{@index}}.jfif" alt="" class="circle">
                   <span class="title">{{this.name}}</span>
                   <p>
                   <b>Age :</b> {{this.age}} <br>
@@ -96,7 +96,7 @@
 
                     <div class="card large" style="height: 600px;">
                         <div class="card-image">
-                          <img src="images/groot2.jpg">
+                          <img src="images/groot-{{this.img}}.jfif" style="height: 80%;width: auto;">
                           <span class="card-title">{{this.name}}</span>
                         </div>
                         <div class="card-content">
@@ -130,12 +130,14 @@
          
            
             <div class="col s12 l8">
-                <div id="userDetails">
-
-                    <blockquote>
-                        Select an user 
-                    </blockquote>
-                   
+                <div id="userDetails" >
+               
+                  <div class="center-align">
+                    <br><br><br><br><br>
+                  <i class="material-icons large">search</i>
+                  <h4>Select an user to view his details</h4>
+                
+              </div>
                 </div>
 
                      
